@@ -1,0 +1,9 @@
+This project is designed to show how to build functions in python to develop RSA keys, both public and private, as well as encrypt and decrypt messages using RSA. The purpose of RSA is to safely and securely send and receive messages or data between 2 or more parties without outside interlopers being able to read these messages and/or data. The method of RSA utilizes specific math algorithms and theorems to accomplish this.
+
+Since RSA utilizes both public and private keys, we have to generate both. To generate our public key, we can use the Euclidean Algorithm with two prime numbers, p and q, as well as an exponent, e to return our public key, n. For our private key, which we would only provide to those that we want to be able to read our messages, we use the Extended Euclidean Algorithm to find Bezout’s co-efficient, s. This allows us to find the modular inverse of our exponent, e, which will result in our private key, d. 
+
+With our public and private keys generated we can now create functions to encode and decode messages fairly easily. To speed up the process, we will create a fast modular exponentiation (FME) function as well. To encode our messages, we convert our message from text into ascii Unicode integers, then using our public key n, e and private key d, encode those integers into a new list of different integers to send. To decode, our decode function essentially runs the previous steps backwards, by using our private key d, and public key n, e to decode our list of integers to their ascii Unicode integers, then convert that list into text revealing the hidden message.
+
+In the event that we do not have the private key d, we also have a factorize function that is a “brute force” method of finding the values of p and q which are required to find the value of d.
+
+I also created a main function in my python file for organizational purposes, as well as a good launching off point for running the script.
